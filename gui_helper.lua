@@ -2,7 +2,7 @@
 local gui = require("gui")
 local module = {}
 -- Multiscreen: hide multiple screens behind switch
-module.Multiscreen = gui.Screen:new()
+local Multiscreen = gui.Screen:new()
 
 function Multiscreen:new(o)
   o = o or {
@@ -31,7 +31,7 @@ end
 function Multiscreen:addElement(element) -- can't add it here
 end;
 -- Button: simplified way to click shit
-module.Button = {}
+Button = {}
 
 function Button:new(o)
   o = o or {
@@ -64,4 +64,6 @@ function Button:handleInput(mon, event)
   end
 end
 
+module.Multiscreen = Multiscreen
+module.Button = Button
 return module
