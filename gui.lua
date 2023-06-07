@@ -1,4 +1,5 @@
-local Screen = {};
+local module
+module.Screen = {};
 function Screen:new(o)
 	o = o or {
 		monitor = term,
@@ -54,6 +55,4 @@ function Screen:loop()
 		end;
 	end);
 end;
-return {
-	Screen = Screen
-};
+return module
