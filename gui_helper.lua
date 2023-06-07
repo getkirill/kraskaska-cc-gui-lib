@@ -2,7 +2,7 @@
 local gui = require("gui")
 local module = {}
 -- Multiscreen: hide multiple screens behind switch
-local Multiscreen = gui.Screen:new()
+local Multiscreen = {}
 
 function Multiscreen:new(o)
   o = o or {
