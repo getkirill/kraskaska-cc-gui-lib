@@ -53,26 +53,20 @@ function Button:new(o)
     text = "Button",
     on_click = function(mon) end
   }
-  setmetatable(o, self);
-	self.__index = self;
-  return o
-end
-
-function Button:render(mon)
-  mon:setCursorPos(self.x, self.y)
-  mon:setBackgroundColor(self.bc)
-  mon:setTextColor(self.fc)
-  mon:write(self.text)
-end
-
-function Button:handleInput(mon, event)
-  local name = event[1]
-  if (name == "mouse_click" or name == "monitor_touch") then
-    local name, button, x, y = table.unpack(event)
-    if x > self.x and x < self.x + string.len(text) and y > self.y and y < self.y + 1 then
-      self.on_click(mon)
+  return {render = function(mon)
+    mon.setCursorPos(o.x, o.y)
+    mon.setBackgroundColor(o.bc)
+    mon.setTextColor(o.fc)
+    mon.write(o.text)
+  end, handleInput = function(mon, event)
+    name = event[1]
+    if name == "monitor_touch" or name == "mouse_click" then
+      name, button, x, y = table.unpack(event)
+      if x > o.x and x < o.x + string.len(o.text) and y > o.y and y < o.y + 1 then
+        on_click(mon)
+      end
     end
-  end
+  end}
 end
 
 module.Multiscreen = Multiscreen
