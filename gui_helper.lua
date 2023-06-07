@@ -30,8 +30,17 @@ end;
 function Multiscreen:switchScreen(name)
   self.current_screen = self.screens[name]
 end
-function Multiscreen:addElement(element) -- can't add it here
-end;
+function Multiscreen:loop()
+  parallel.waitForAny(function()
+		while true do
+			self.current_screen:render();
+		end;
+	end, function()
+		while true do
+			self.current_screen:handleInput();
+		end;
+	end);
+end
 -- Button: simplified way to click shit
 Button = {}
 
