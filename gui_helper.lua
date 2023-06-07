@@ -8,7 +8,7 @@ function Multiscreen:new(o)
   o = o or {
 		current_screen = nil,
     screens = {},
-    monitor = self.monitor
+    monitor = term
 	};
 	setmetatable(o, self);
 	self.__index = self;
