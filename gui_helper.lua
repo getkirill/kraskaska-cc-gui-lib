@@ -62,7 +62,7 @@ function Button:new(o)
     name = event[1]
     if name == "monitor_touch" or name == "mouse_click" then
       name, button, x, y = table.unpack(event)
-      if x > o.x and x < o.x + string.len(o.text) and y > o.y and y < o.y + 1 then
+      if x >= o.x and x < o.x + string.len(o.text) and y >= o.y and y < o.y + 1 then
         o.on_click(mon)
       end
     end
