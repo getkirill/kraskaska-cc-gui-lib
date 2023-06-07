@@ -55,7 +55,7 @@ end
 
 function Button:handleInput(mon, event)
   local name = event[1]
-  if (name == "mouse_click" or name = "monitor_touch") then
+  if (name == "mouse_click" or name == "monitor_touch") then
     local name, button, x, y = table.unpack(event)
     if x > self.x and x < self.x + string.len(text) and y > self.y and y < self.y + 1 then
       self.on_click(mon)
