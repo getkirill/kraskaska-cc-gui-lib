@@ -59,10 +59,10 @@ function Button:new(o)
 end
 
 function Button:render(mon)
-  mon.setCursorPos(self.x, self.y)
-  mon.setBackgroundColor(self.bc)
-  mon.setTextColor(self.fc)
-  mon.write(self.text)
+  mon:setCursorPos(self.x, self.y)
+  mon:setBackgroundColor(self.bc)
+  mon:setTextColor(self.fc)
+  mon:write(self.text)
 end
 
 function Button:handleInput(mon, event)
