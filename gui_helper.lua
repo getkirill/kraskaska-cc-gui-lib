@@ -7,7 +7,8 @@ local Multiscreen = gui.Screen:new()
 function Multiscreen:new(o)
   o = o or {
 		current_screen = nil,
-    screens = {}
+    screens = {},
+    monitor = self.monitor
 	};
 	setmetatable(o, self);
 	self.__index = self;
