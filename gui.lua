@@ -54,3 +54,4 @@ function Screen:loop()
 		end;
 	end);
 end;
+return {Screen}
