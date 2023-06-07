@@ -16,7 +16,7 @@ function Multiscreen:new(o)
 end
 
 function Multiscreen:newScreen(name)
-  local screen = gui.Screen:new{monitor=self.monitor}
+  local screen = gui.Screen:new{monitor=self.monitor, elements = {}}
   self.screens = self.screens or {}
   self.screens[name] = screen
   return screen
