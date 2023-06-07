@@ -1,4 +1,4 @@
-Screen = {};
+local Screen = {};
 function Screen:new(o)
 	o = o or {
 		monitor = term,
