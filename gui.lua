@@ -1,4 +1,4 @@
-local module
+local module = {}
 module.Screen = {};
 function Screen:new(o)
 	o = o or {
