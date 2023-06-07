@@ -13,6 +13,11 @@ function Multiscreen:new(o)
 	return o;
 end
 
+function Multiscreen:newScreen(name)
+  local screen = gui.Screen:new{monitor=self.monitor}
+  screens[name] = screen
+  return screen
+end
 function Multiscreen:render()
 	self.current_screen:render()
 end;
