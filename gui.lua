@@ -1,6 +1,6 @@
 local module = {}
 module.Screen = {};
-function Screen:new(o)
+local function Screen:new(o)
 	o = o or {
 		monitor = term,
 		elements = {}
@@ -12,15 +12,15 @@ function Screen:new(o)
 	o:clear();
 	return o;
 end;
-function Screen:clear()
+local function Screen:clear()
 	self.monitor.clear();
 	self.monitor.setCursorPos(1, 1);
 end;
-function Screen:addElement(element)
+local function Screen:addElement(element)
 	self.elements = self.elements or {};
 	table.insert(self.elements, element);
 end;
-function Screen:render()
+local function Screen:render()
 	local handlers = {};
 	for _, elem in pairs(self.elements) do
 		if elem.render ~= nil then
@@ -32,7 +32,7 @@ function Screen:render()
 	parallel.waitForAll(table.unpack(handlers));
 	os.sleep(0);
 end;
-function Screen:handleInput()
+local function Screen:handleInput()
 	local event = table.pack(os.pullEvent());
 	local handlers = {};
 	for _, elem in pairs(self.elements) do
@@ -44,7 +44,7 @@ function Screen:handleInput()
 	end;
 	parallel.waitForAll(table.unpack(handlers));
 end;
-function Screen:loop()
+local function Screen:loop()
 	parallel.waitForAny(function()
 		while true do
 			self:render();
