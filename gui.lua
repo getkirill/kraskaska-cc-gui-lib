@@ -54,4 +54,6 @@ function Screen:loop()
 		end;
 	end);
 end;
-return {Screen = Screen}
+return {
+	Screen = Screen
+};
