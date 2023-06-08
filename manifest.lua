@@ -1,5 +1,5 @@
 return {
-	name = "kraskaska-gui-lib",
+	name = "kraskaska-cc-gui-lib",
 	version = "1",
 	files = {
     "gui.lua",
